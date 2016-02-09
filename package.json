@@ -1,0 +1,24 @@
+{
+  "name": "node-nano-service",
+  "version": "0.0.1",
+  "description": "Describe a small service that behavie gracefully in a micro service envernment",
+  "main": "server.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aofry/node-nano-service.git"
+  },
+  "keywords": [
+    "node",
+    "docker",
+    "kubernetes"
+  ],
+  "author": "aofry@yahoo.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aofry/node-nano-service/issues"
+  },
+  "homepage": "https://github.com/aofry/node-nano-service#readme"
+}
