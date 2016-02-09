@@ -1,6 +1,6 @@
 {
   "name": "node-nano-service",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Describe a small service that behavie gracefully in a micro service envernment",
   "main": "server.js",
   "scripts": {
@@ -28,7 +28,11 @@
     "supertest": "^1.1.0"
   },
   "dependencies": {
+    "body-parser": "1.14.2",
+    "compression": "1.6.1",
+    "cookie-parser": "1.4.1",
     "express": "4.13.4",
+    "http-status-codes": "1.0.6",
     "winston": "2.1.1"
   },
   "config": {
