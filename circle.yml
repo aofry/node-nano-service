@@ -9,11 +9,11 @@ dependencies:
     - "node_modules"
   override:
       - docker info
-      - docker build -t $EXTERNAL_REGISTRY_ENDPOINT/node-nano-service .
+      - docker build -t $EXTERNAL_REGISTRY_ENDPOINT/$CIRCLE_PROJECT_REPONAME .
 
 test:
   override:
-    - docker run -d -p 3000:3000 $EXTERNAL_REGISTRY_ENDPOINT/node-nano-service; sleep 3
+    - docker run -d -p 3000:3000 $EXTERNAL_REGISTRY_ENDPOINT/$CIRCLE_PROJECT_REPONAME; sleep 3
     - curl --retry 10 --retry-delay 3 -v http://localhost:3000/
 
 deployment:
@@ -21,4 +21,4 @@ deployment:
     branch: master
     commands:
       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
-      - docker push $EXTERNAL_REGISTRY_ENDPOINT/node-nano-service
+      - docker push $EXTERNAL_REGISTRY_ENDPOINT/$CIRCLE_PROJECT_REPONAME

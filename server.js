@@ -3,6 +3,7 @@ var app = express();
 var counter = 0;
 
 app.get('/', function (req, res) {
+    console.log('Sending result for: ' + counter);
     res.send('Hello World! Call num: ' + counter++);
 });
 
