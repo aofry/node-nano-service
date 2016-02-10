@@ -1,6 +1,6 @@
 {
   "name": "node-nano-service",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Describe a small service that behavie gracefully in a micro service envernment",
   "main": "server.js",
   "scripts": {
