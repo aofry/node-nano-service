@@ -9,7 +9,9 @@ dependencies:
     - "node_modules"
   override:
       - docker info
-      - docker build -t $EXTERNAL_REGISTRY_ENDPOINT/$CIRCLE_PROJECT_REPONAME:$CIRCLE_BUILD_NUM .
+      - DOCKER_IMAGE_ID=$(docker build -t $EXTERNAL_REGISTRY_ENDPOINT/$CIRCLE_PROJECT_REPONAME .)
+      - docker tag $DOCKER_IMAGE_ID $EXTERNAL_REGISTRY_ENDPOINT/$CIRCLE_PROJECT_REPONAME:$CIRCLE_BUILD_NUM
+      - docker tag $DOCKER_IMAGE_ID $EXTERNAL_REGISTRY_ENDPOINT/$CIRCLE_PROJECT_REPONAME:latest
 
 test:
   override:
@@ -22,3 +24,4 @@ deployment:
     commands:
       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
       - docker push $EXTERNAL_REGISTRY_ENDPOINT/$CIRCLE_PROJECT_REPONAME:$CIRCLE_BUILD_NUM
+      - docker push $EXTERNAL_REGISTRY_ENDPOINT/$CIRCLE_PROJECT_REPONAME:latest
