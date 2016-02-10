@@ -9,7 +9,8 @@ dependencies:
     - "node_modules"
   override:
       - docker info
-      - DOCKER_IMAGE_ID=$(docker build -t $EXTERNAL_REGISTRY_ENDPOINT/$CIRCLE_PROJECT_REPONAME .)
+      - docker build -t $EXTERNAL_REGISTRY_ENDPOINT/$CIRCLE_PROJECT_REPONAME .
+      - DOCKER_IMAGE_ID="$(docker images | grep '$EXTERNAL_REGISTRY_ENDPOINT/$CIRCLE_PROJECT_REPONAME' | head -n 1 | awk '{print $3}')"
       - docker tag $DOCKER_IMAGE_ID $EXTERNAL_REGISTRY_ENDPOINT/$CIRCLE_PROJECT_REPONAME:$CIRCLE_BUILD_NUM
       - docker tag $DOCKER_IMAGE_ID $EXTERNAL_REGISTRY_ENDPOINT/$CIRCLE_PROJECT_REPONAME:latest
 
