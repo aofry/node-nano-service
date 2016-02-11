@@ -4,6 +4,6 @@
 Describe a small service that behave gracefully in a micro service environment
 
 Helpful links:
-https://circleci.com/docs/docker
-https://circleci.com/docs/environment-variables
-kubernetes Debugging-FAQ: https://github.com/kubernetes/kubernetes/wiki/Debugging-FAQ
+[Circleci & Docker](https://circleci.com/docs/docker)
+[Circleci environment variables](https://circleci.com/docs/environment-variables)
+[kubernetes Debugging-FAQ](kubernetes Debugging-FAQ: https://github.com/kubernetes/kubernetes/wiki/Debugging-FAQ)
