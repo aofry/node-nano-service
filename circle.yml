@@ -3,6 +3,7 @@ machine:
     version: 5.6.0
   services:
       - docker
+      - redis
 
 dependencies:
   cache_directories:
@@ -10,6 +11,10 @@ dependencies:
   override:
       - docker info
       - docker build -t $EXTERNAL_REGISTRY_ENDPOINT/$CIRCLE_PROJECT_REPONAME:latest -t $EXTERNAL_REGISTRY_ENDPOINT/$CIRCLE_PROJECT_REPONAME:$CIRCLE_BUILD_NUM .
+
+environment:
+    CIRCLE_ENV: test
+    REDIS_MASTER: "localhost"
 
 test:
   override:
