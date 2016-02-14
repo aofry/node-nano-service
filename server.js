@@ -3,8 +3,10 @@ var app = express();
 var counter = 0;
 
 app.get('/', function (req, res) {
+    var redisLocation = process.env.REDIS_MASTER;
     console.log('Sending result for: ' + counter);
-    res.send('Hello World! Simulating rolling update. Call num: ' + counter++);
+    console.log('redis location: ' + redisLocation);
+    res.send('Redis Location = ' + redisLocation + '. Call num: ' + counter++);
 });
 
 app.listen(3000, function () {

@@ -23,6 +23,12 @@
           {
             "name":"nns",
             "image":"aofry/node-nano-service",
+            "env": [
+              {
+                "name": "REDIS_MASTER",
+                "value": "redis-master"
+              }
+            ],
             "ports":[
               {
                 "name":"http-server",
