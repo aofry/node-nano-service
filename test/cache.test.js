@@ -16,5 +16,16 @@ describe('cache', function () {
                 done(err);
             });
         });
+
+        it('should check that cache can hold simple date as string', function () {
+            cache.set("time", new Date() + '');
+
+            cache.get("time", function(err, cacheReturnRes) {
+                //console.log("got result: " + cacheReturnRes);
+                if (cacheReturnRes)
+                    assert(cacheReturnRes != null, "result from cache not null")
+                done(err);
+            });
+        });
     })
 });
