@@ -2,31 +2,34 @@
   "kind":"ReplicationController",
   "apiVersion":"v1",
   "metadata":{
-    "name":"nns",
+    "name":"redis-master",
     "labels":{
-      "app":"nns"
+      "app":"redis",
+      "role":"master"
     }
   },
   "spec":{
     "replicas":1,
     "selector":{
-      "app":"nns"
+      "app":"redis",
+      "role":"master"
     },
     "template":{
       "metadata":{
         "labels":{
-          "app":"nns"
+          "app":"redis",
+          "role":"master"
         }
       },
       "spec":{
         "containers":[
           {
-            "name":"nns",
-            "image":"aofry/node-nano-service",
+            "name":"redis-master",
+            "image":"redis",
             "ports":[
               {
-                "name":"http-server",
-                "containerPort":3000
+                "name":"redis-server",
+                "containerPort":6379
               }
             ]
           }
