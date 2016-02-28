@@ -1,6 +1,6 @@
 {
   "name": "node-nano-service",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Describe a small service that behavie gracefully in a micro service envernment",
   "main": "server.js",
   "scripts": {
@@ -38,7 +38,7 @@
   },
   "config": {
     "ghooks": {
-      "pre-push": "npm test"
+      "pre-commit": "npm test"
     }
   }
 }

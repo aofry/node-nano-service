@@ -1,0 +1,4 @@
+OS X:
+* copy redis_env.sh to a folder outside of the workspace
+* modify the file to config of your setup
+* source the file in your ~/.bash_profile
