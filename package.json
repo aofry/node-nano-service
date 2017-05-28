@@ -5,7 +5,9 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "test": "mocha --reporter spec test"
+    "test": "mocha --reporter spec test",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -28,17 +30,19 @@
     "supertest": "^1.1.0"
   },
   "dependencies": {
-    "body-parser": "1.14.2",
+    "body-parser": "1.17.2",
     "compression": "1.6.1",
     "cookie-parser": "1.4.1",
-    "express": "4.13.4",
+    "express": "4.15.3",
     "http-status-codes": "1.0.6",
     "redis": "2.4.2",
-    "winston": "2.1.1"
+    "winston": "2.1.1",
+    "snyk": "^1.31.0"
   },
   "config": {
     "ghooks": {
       "pre-commit": "npm test"
     }
-  }
+  },
+  "snyk": true
 }
